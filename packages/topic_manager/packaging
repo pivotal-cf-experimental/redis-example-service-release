@@ -1,0 +1,3 @@
+# abort script on any command that exits with a non zero value
+set -e
+cp -a topic_manager/* ${BOSH_INSTALL_TARGET}

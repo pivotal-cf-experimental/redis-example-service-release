@@ -1,0 +1,68 @@
+name: kafka
+
+director_uuid: $DIRECTOR_UUID
+
+releases:
+  - name: &release_name $SERVICE_RELEASE_NAME
+    version: latest
+
+stemcells:
+  - alias: trusty
+    os: ubuntu-trusty
+    version: latest
+
+jobs:
+  - name: kafka_server
+    instances: 3
+    templates:
+      - name: kafka_server
+        release: *release_name
+        provides:
+          kafka: {as: kafka}
+        consumes:
+          kafka: {as: kafka}
+          zookeeper: {as: zookeeper}
+    vm_type: medium
+    persistent_disk_type: ten
+    stemcell: trusty
+    networks:
+      - name: &network_name kafka
+
+  - name: zookeeper_server
+    instances: 2
+    templates:
+      - name: zookeeper_server
+        release: *release_name
+        provides:
+          zookeeper: {as: zookeeper}
+        consumes:
+          zookeeper: {as: zookeeper}
+    vm_type: medium
+    stemcell: trusty
+    networks:
+      - name: *network_name
+
+  - name: smoke_tests
+    lifecycle: errand
+    instances: 1
+    templates:
+      - name: smoke_tests
+        release: *release_name
+        consumes:
+          kafka: {as: kafka}
+          zookeeper: {as: zookeeper}
+    vm_type: medium
+    stemcell: trusty
+    networks:
+      - name: *network_name
+
+properties:
+  network: *network_name
+  auto_create_topics: true
+  default_replication_factor: 3
+
+update:
+  canaries: 1
+  max_in_flight: 10
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000

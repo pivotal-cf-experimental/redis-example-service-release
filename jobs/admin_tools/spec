@@ -1,0 +1,6 @@
+---
+name: admin_tools
+templates: {}
+properties: {}
+
+packages: [kafka, jre, topic_manager]

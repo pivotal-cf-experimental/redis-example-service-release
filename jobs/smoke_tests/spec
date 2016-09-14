@@ -1,0 +1,20 @@
+---
+name: smoke_tests
+
+templates:
+  bin/run.erb: bin/run
+  config/consumer.properties.erb: config/consumer.properties
+  config/producer.properties.erb: config/producer.properties
+
+packages:
+  - common
+  - kafka
+  - jre
+
+consumes:
+  - name: kafka
+    type: kafka
+  - name: zookeeper
+    type: zookeeper
+
+properties: {}

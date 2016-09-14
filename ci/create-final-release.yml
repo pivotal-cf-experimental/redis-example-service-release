@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: pcfservicesenablement/services-enablement-ci}
+
+inputs:
+- name: kafka-service-final-tag
+  path: release-to-create
+- name: services-enablement-meta
+
+outputs:
+- name: kafka-service-release-final-tarball
+  path: tarball-to-upload
+- name: kafka-service-release-final-metadata
+  path: release-to-create-metadata
+
+run:
+  path: services-enablement-meta/ci-scripts/create-final-release.sh
+
+params:
+  RELEASE_NAME:

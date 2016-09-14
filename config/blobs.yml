@@ -1,0 +1,9 @@
+---
+jre/jre-8u73-linux-x64.tar.gz:
+  object_id: 336d8e6b-39a7-4627-9ffd-1705b675c96f
+  sha: 4ce52f22c1e9fec57ea21e9ac4f7db7e2d7ffb4a
+  size: 71759339
+kafka/kafka_2.11-0.9.0.1.tgz:
+  object_id: 179bffec-c604-41db-9941-8455c1b0e8ae
+  sha: fc9ed9b663dd608486a1e56197d318c41813d326
+  size: 35650542

@@ -1,0 +1,24 @@
+vm_types:
+- name: medium
+  cloud_properties: {}
+
+disk_types:
+- name: ten
+  disk_size: 3000
+  cloud_properties: {}
+
+networks:
+- name: kafka-network
+  subnets:
+  - cloud_properties:
+      name: random
+    range: 10.244.9.0/28
+    reserved:
+    - 10.244.9.1
+
+compilation:
+  cloud_properties:
+    name: random
+  network: kafka-network
+  reuse_compilation_vms: true
+  workers: 5

@@ -1,0 +1,31 @@
+---
+name: kafka_server
+
+templates:
+  bin/kafka_server_ctl.erb: bin/kafka_server_ctl
+  bin/kafka-server-start.erb: bin/kafka-server-start
+  config/log4j.properties.erb: config/log4j.properties
+  config/server.properties.erb: config/server.properties
+
+packages:
+- common
+- kafka
+- jre
+
+provides:
+- name: kafka
+  type: kafka
+
+consumes:
+- name: kafka
+  type: kafka
+- name: zookeeper
+  type: zookeeper
+
+properties:
+  network:
+    description: "Kafka network"
+  auto_create_topics:
+    description: "Enable auto creation of topic on the server"
+  default_replication_factor:
+    description: "default replication factors for automatically created topics"

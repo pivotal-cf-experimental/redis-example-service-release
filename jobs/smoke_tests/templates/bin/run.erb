@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e -x
+
+export JAVA_HOME=/var/vcap/packages/jre/jre1.8.0_73
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+/var/vcap/jobs/smoke_tests/packages/kafka/kafka_2.11-0.9.0.1/bin/kafka-producer-perf-test.sh --topic test-topic --throughput 1000 --record-size 1000 --num-records 5000 --producer-props acks=1 bootstrap.servers=<%= link('kafka').instances.map{|n| "#{n.address}:9092"}.join(',') %>
+/var/vcap/jobs/smoke_tests/packages/kafka/kafka_2.11-0.9.0.1/bin/kafka-consumer-perf-test.sh --topic test-topic --messages 5000 --threads 1 --zookeeper=<%= link('zookeeper').instances.map{|n| "#{n.address}:2181"}.join(',') %>
+/var/vcap/jobs/smoke_tests/packages/kafka/kafka_2.11-0.9.0.1/bin/kafka-topics.sh --delete --topic test-topic --zookeeper=<%= link('zookeeper').instances.map{|n| "#{n.address}:2181"}.join(',') %>
