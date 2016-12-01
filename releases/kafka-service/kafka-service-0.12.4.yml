@@ -1,0 +1,43 @@
+---
+packages:
+- name: common
+  version: 721e3ac91fd304555f85700d3334be625a59f7c5
+  fingerprint: 721e3ac91fd304555f85700d3334be625a59f7c5
+  sha1: efdde1c10bb86b26ca57e0bf6db0b6e557033447
+  dependencies: []
+- name: jre
+  version: 7a3630bcb5828e709af1458e3820e9195896147c
+  fingerprint: 7a3630bcb5828e709af1458e3820e9195896147c
+  sha1: 1d2f21a2f5396d991f4a90cfb38388f7eadf6f07
+  dependencies: []
+- name: kafka
+  version: 19b391f16f78880c9ccef4f6048626c2382c9575
+  fingerprint: 19b391f16f78880c9ccef4f6048626c2382c9575
+  sha1: d2ac2602f22d531b6bbbce143632a3255ea64c25
+  dependencies: []
+- name: topic_manager
+  version: 96de3cf25d800371af7be02b63068ddf3f35dc25
+  fingerprint: 96de3cf25d800371af7be02b63068ddf3f35dc25
+  sha1: eeba8a09f213cfd20faeaabaeeff73e743ba3931
+  dependencies: []
+jobs:
+- name: admin_tools
+  version: 55ed9e1939b1b7616948fa486d191f33871e5d01
+  fingerprint: 55ed9e1939b1b7616948fa486d191f33871e5d01
+  sha1: 281776d2a26b813ab5f816aad4997454f4e5ba00
+- name: kafka_server
+  version: 122829d4832c09db5da46d36cd11364642e1395e
+  fingerprint: 122829d4832c09db5da46d36cd11364642e1395e
+  sha1: 2cb2ff0408e5c461218360251f0fdae20ad3d112
+- name: smoke_tests
+  version: 8c0cba1483b894489bfc2d7e767780158b9ca84a
+  fingerprint: 8c0cba1483b894489bfc2d7e767780158b9ca84a
+  sha1: 0bae78c264f76ac0539f2de75099defa19708da6
+- name: zookeeper_server
+  version: 038eb42e25ac639a7b5218d4022d17a7724175d1
+  fingerprint: 038eb42e25ac639a7b5218d4022d17a7724175d1
+  sha1: 7e9c7b7d7ef9207250825d908205876b98481277
+commit_hash: 096d098d
+uncommitted_changes: false
+name: kafka-service
+version: 0.12.4

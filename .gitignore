@@ -5,3 +5,4 @@ blobs
 config/private.yml
 .blobs
 config/dev.yml
+releases/**/*.tgz
