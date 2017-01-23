@@ -10,14 +10,30 @@ stemcells:
   os: ubuntu-trusty
   version: 3177
 
-jobs:
+instance_groups:
 - name: redis-server
   instances: 1
-  templates:
-  - {name: redis-server, release: REPLACE_WITH_RELEASE_NAME}
+  jobs:
+  - name: redis-service
+    release: REPLACE_WITH_RELEASE_NAME
   vm_type: REPLACE_WITH_VM_TYPE_FROM_DIRECTOR_CLOUD_CONFIG
   persistent_disk_type: REPLACE_WITH_PERSISTENT_DISK_TYPE_FROM_CLOUD_CONFIG
   stemcell: trusty
+  azs:
+    - REPLACE_WITH_AZ
+  networks:
+  - name: REPLACE_WITH_NETWORK_FROM_DIRECTOR_CLOUD_CONFIG
+
+- name: health-check
+  lifecycle: errand
+  instances: 1
+  jobs:
+    - name: health-check
+      release: REPLACE_WITH_RELEASE_NAME
+  vm_type: REPLACE_WITH_VM_TYPE_FROM_DIRECTOR_CLOUD_CONFIG
+  stemcell: trusty
+  azs:
+    - REPLACE_WITH_AZ
   networks:
   - name: REPLACE_WITH_NETWORK_FROM_DIRECTOR_CLOUD_CONFIG
 

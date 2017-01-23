@@ -1,0 +1,11 @@
+---
+name: health-check
+templates:
+  health-check.sh.erb: bin/run
+
+packages:
+- redis
+
+consumes:
+  - name: redis
+    type: redis

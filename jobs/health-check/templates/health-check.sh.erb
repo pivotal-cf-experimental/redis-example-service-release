@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+redis_host="<%= link('redis').instances[0].address %>"
+redis_password="<%= link('redis').p('redis.password') %>"
+
+response=$(/var/vcap/packages/redis/bin/redis-cli -h "$redis_host" -a "$redis_password" ping)
+
+if [ "$response" != "PONG" ]; then
+  echo "Redis health check failed: ping returned $response"
+  exit 1
+fi
+
+echo "Redis health check successful: ping returned $response"

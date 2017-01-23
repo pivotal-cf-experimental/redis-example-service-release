@@ -7,6 +7,12 @@ templates:
 packages:
 - redis
 
+provides:
+  - name: redis
+    type: redis
+    properties:
+    - redis.password
+
 properties:
   redis.password:
     description: Password used for redis access
