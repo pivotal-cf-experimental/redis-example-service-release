@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+<% if p('health-check.systest-failure-override') %>
+echo "System test errand failure override detected"
+exit 1
+<% end %>
+
 redis_host="<%= link('redis').instances[0].address %>"
 redis_password="<%= link('redis').p('redis.password') %>"
 

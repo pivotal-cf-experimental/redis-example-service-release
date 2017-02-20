@@ -9,3 +9,8 @@ packages:
 consumes:
   - name: redis
     type: redis
+
+properties:
+  health-check.systest-failure-override:
+    description: For the purposes of system tests, allow errand failure to be configured
+    default: false
