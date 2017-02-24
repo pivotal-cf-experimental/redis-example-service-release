@@ -37,6 +37,19 @@ instance_groups:
   networks:
   - name: REPLACE_WITH_NETWORK_FROM_DIRECTOR_CLOUD_CONFIG
 
+- name: cleanup-data
+  lifecycle: errand
+  instances: 1
+  jobs:
+    - name: cleanup-data
+      release: REPLACE_WITH_RELEASE_NAME
+  vm_type: REPLACE_WITH_VM_TYPE_FROM_DIRECTOR_CLOUD_CONFIG
+  stemcell: trusty
+  azs:
+    - REPLACE_WITH_AZ
+  networks:
+  - name: REPLACE_WITH_NETWORK_FROM_DIRECTOR_CLOUD_CONFIG
+
 update:
   canaries: 1
   canary_watch_time: 30000-180000
