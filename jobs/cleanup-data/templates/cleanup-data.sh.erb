@@ -1,0 +1,23 @@
+#!/bin/bash -e
+
+<% if p('cleanup-data.systest-failure-override') %>
+echo "System test errand failure override detected"
+exit 1
+<% end %>
+
+redis_host="<%= link('redis').instances[0].address %>"
+redis_password="<%= link('redis').p('redis.password') %>"
+
+echo "About to purge all data from Redis instance running on $redis_host"
+
+set +e
+/var/vcap/packages/redis/bin/redis-cli -h "$redis_host" -a "$redis_password" flushall
+e=$?
+set -e
+
+if [[ $e -ne "0" ]]; then
+  echo "Redis CLI command failed"
+  exit $e
+fi
+
+echo "Redis data cleanup successful"
