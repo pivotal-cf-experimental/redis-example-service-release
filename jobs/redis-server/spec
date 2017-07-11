@@ -16,10 +16,6 @@ provides:
 properties:
   redis.password:
     description: Password used for redis access
-    type: password
-    parameters:
-      length: 40
-      exclude_special: true
   redis.persistence:
     description: yes/no
   redis.maxclients:
