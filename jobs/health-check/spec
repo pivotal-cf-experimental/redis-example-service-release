@@ -14,3 +14,6 @@ properties:
   health-check.systest-failure-override:
     description: For the purposes of system tests, allow errand failure to be configured
     default: false
+  health-check.systest-sleep:
+    description: For the purposes of system tests, allow a sleep (in seconds) to be configured
+    default: 0
