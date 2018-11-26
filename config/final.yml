@@ -1,5 +1,5 @@
 ---
-final_name: redis-service
+final_name: redis-example-service
 blobstore:
   provider: s3
   options:
