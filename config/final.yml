@@ -3,6 +3,5 @@ final_name: redis-example-service
 blobstore:
   provider: s3
   options:
-    bucket_name: redis-example-service-release-bosh-blobs
-    region: eu-west-1
-    endpoint: https://s3-eu-west-1.amazonaws.com
+    bucket_name: redis-example-service-release-blobs
+    region: us-east-1
